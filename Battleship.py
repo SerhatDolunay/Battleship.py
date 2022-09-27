@@ -1,4 +1,5 @@
 from random import randint
+
 # Create a table which will use as an ocean.
 board = []
 
@@ -11,10 +12,8 @@ def print_board(board):
         print(" ".join(row))
 
 
-print_board(board)
-
 # Here we generate a random coordinate for the ship in the ocean.
-
+print_board(board)
 
 def random_row(board):
     return randint(0, len(board) - 1)
@@ -38,16 +37,18 @@ for turn in range(4):
         print("Congratulations! You sank my battleship!")
         break
     else:
-        if guess_row not in range(4) or \
-                guess_col not in range(4):
+        if guess_row not in range(4) or guess_col not in range(4):
             print("Oops, that's not even in the ocean.")
         elif board[guess_row][guess_col] == "X":
             print("You guessed that one already.")
         else:
             print("You missed my battleship!")
             board[guess_row][guess_col] = "X"
+        
         if (turn == 3):
-            print("Game Over")
+            print("Game Over!")
+
         print_board(board)
+
 # Print correct answer.
 print("Row:", int(ship_row + 1), "|| Col:", int(ship_col + 1))
